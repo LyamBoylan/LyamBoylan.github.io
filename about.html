@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<style type="text/css">
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html {
+        padding-bottom: 25px;
+    }
+
+    body {
+      font-size: 20px;
+    }
+
+    .inner, #wrap {
+      width:50%;
+      margin:auto;
+    }
+    
+    br {
+        display: block; /* makes it have a width */
+        content: ""; /* clears default height */
+        margin-top: 10px; /* change this to whatever height you want it */
+    }
+
+    a:link {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a[href*='//']:link {
+      color: #0088FF;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a:visited {
+      color: #FF4400;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a[href*='//']:visited {
+      color: #8800FF;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    
+    a:active {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #FF4400, #FF8800);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    h1:after
+    {
+        content:' ';
+        display:block;
+        border:1px solid #FF4400;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        background-image: linear-gradient(to right, #004488, #00FFFF);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        padding-bottom: 4px;
+        position: relative;
+    }
+
+    h2:before {
+        background: #f00;
+        background: linear-gradient(to right, #004488, #FFFFFF, #FFFFFF);  
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+    }
+
+    h3 {
+      font-size: 25px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #880044, #004488);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .header {
+      width:98%;
+      margin: auto;
+      overflow: hidden;
+      background-color: transparent;
+      padding: 0 0;
+    }
+
+    .header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+    }
+
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .header a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .header a.active {
+      background-color: #FF8800;
+      color: white;
+    }
+
+    .header-right {
+      float: right;
+    }
+
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+
+      .header-right {
+        float: none;
+      }
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    }
+  });
+</script>
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+<div class="header" style="position: sticky; top: 0;
+      background-color: #FFFFFF; z-index:100; box-shadow: 0 8px 6px -6px #FF4400;">
+  <a href="index.html" class="logo"><img src="yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
+  <div class="header-right">
+    <a href="index.html">Home</a>
+    <a class="active" href="about.html">About</a>
+  </div>
+</div>
+
+<html>
+<title>About</title>
+<div id="wrap">
+<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 0 6px 6px #FFFFFF;"><h1>About yamResearch</h1></div>
+
+<ul><li><a href="#idea">Idea</a></li>
+<li><a href="#presentation-style">Presentation style</a></li>
+<li><a href="#themes">Themes</a></li>
+<ul><li><a href="#isolating">Isolating</a></li>
+<li><a href="#enumerating">Enumerating</a></li>
+<li><a href="#generalizing">Generalizing</a></li>
+</ul><li><a href="#a-call-to-action">A call to action</a></li>
+</ul>
+
+<h2 id="idea">Idea</h2>
+The idea of yamResearch is to serve as an accessible, interactive portfolio of research and ideas by Lyam Boylan in the form of a wiki. It was inspired by the need
+<ul>
+    <li> to modernize research papers by making them more digitally interactive and accessible to a wider audience, and</li>
+    <li> to organize my thoughts.</li>
+</ul>
+
+<h2 id="presentation-style">Presentation style</h2>
+The presentation style of this site is inspired by traditional online wikis, especially <a href="https://ncatlab.org/">nLab</a> (not affiliated). <a href="index.html">Internal links</a> are orange, whereas <a href="https://stackoverflow.com/questions/26898931/is-it-possible-to-style-external-html-links-differently-to-relative-links-us">external links</a> are blue. Two unique integrations are <a href="https://www.mathjax.org/">MathJax</a>, for rendering expressions such as
+
+$$\int_{-\infty}^\infty e^{-x^2}=\sqrt{\pi},$$
+
+and <a href="https://www.desmos.com/">Desmos</a>, for interactive graphing such as
+
+<div id="calculator1" style="width: 100%; height: 400px; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 8px 6px -6px #004488;"><script>
+var elt = document.getElementById('calculator1');
+var calculator = Desmos.GraphingCalculator(elt, {colors: ["#000000", "#FF4400", "#004488", "#880044"]});
+    calculator.setExpression({ id: '1', latex: 'y=e^{-x^2}', color: 'BLACK'});
+    calculator.setExpression({ id: '2', latex: '\\alpha = 1', sliderBounds: {min: "0", max: "10"}});
+    calculator.setExpression({ id: '3', latex: '\\abs(x) = \\alpha', secret: true, color: 'BLACK'});
+    calculator.setExpression({ id: '4', latex: '(\\alpha, 0)', secret: true, label: 'Click and drag', showLabel: true, color: 'RED'});
+    calculator.setExpression({ id: '5', latex: '(-\\alpha, 0)', secret: true, color: "RED"});
+    calculator.setExpression({ id: '6', latex: '0 \\le y\\le e^{-x^2}\\{\\abs(x)\\le \\alpha\\}', secret: true});
+    calculator.setExpression({ id: '7', latex: 'A=\\int_{-\\alpha}^{\\alpha}e^{-x^2}dx'});
+    calculator.setExpression({ id: '8', latex: '\\sqrt{\\pi}'});
+    calculator.setMathBounds({left: -3, right: 3, bottom: 3 * calculator.graphpaperBounds.mathCoordinates.bottom / 10, top: 3 * calculator.graphpaperBounds.mathCoordinates.top / 10});
+calculator.setDefaultState(calculator.getState());</script></div>
+
+$$\text{Graph 1. Interactive graph of $\int e^{-x^2}dx$.}$$
+
+I tend to use the pronoun "we" when presenting ideas objectively (that is, "we" as inclusive to author and reader, and anyone following the same lines of reasoning). "I" is reserved only for when something specifically pertains to me as the subject. The focus of most articles are about the research itself, rather than me <i>as</i> a researcher, so "we" is used almost everywhere.
+
+<h2 id="themes">Themes</h2>
+As <i>opposed</i> to, say, having special interest in a specific area like <a href="https://en.wikipedia.org/wiki/Number_theory">number theory</a>, <a href="https://en.wikipedia.org/wiki/Geometry">geometry</a>, etc., my research tends to be from a <a href="https://ncatlab.org/nlab/show/nPOV">higher point of view</a>. That is to say, I am interested in
+<ul>
+    <li> Isolating (the essence of),</li>
+    <li> <a href="https://en.wikipedia.org/wiki/Enumeration">Enumerating</a>, and</li>
+    <li> <a href="https://en.wikipedia.org/wiki/Generalization">Generalizing</a>,</li>
+</ul>
+<a href="https://ncatlab.org/nlab/show/stuff,+structure,+property">structures</a>.
+
+<h3 id="isolating">Isolating</h3>
+By <i>isolating (the essence of)</i>, I mean distilling some structure into some <a href="https://en.wikipedia.org/wiki/Canonical_form">canonical form</a>.
+
+Some examples include:
+<ul>
+    <li> <a href="math_without_variables.html">Math Without Variables</a></li>
+</ul>
+
+<h3 id="enumerating">Enumerating</h3>
+
+By <i>enumerating</i> (espcially in regards to an isolated family of structures) I mean constructing some <a href="https://en.wikipedia.org/wiki/Map_(mathematics)">map</a> between a <a href="https://en.wikipedia.org/wiki/List_of_types_of_numbers">number set</a> and a family of structures (or the elements of a structure).
+<br>
+
+Some examples include:
+<ul>
+    <li> <a href="fractal_parametrization.html">Fractal Parametrization</a></li>
+</ul>
+
+<h3 id="generalizing">Generalizing</h3>
+
+By <i>generalizing</i> (especially in regard to an enumerated family of structures) I mean realizing some family of structures as a <a href="https://en.wikipedia.org/wiki/Special_case">special case</a> of a more abstract <a href="https://mathworld.wolfram.com/Superset.html">superset</a>.
+
+<br>
+
+Some examples include:
+<ul>
+    <li> <a href="negative_dimensions.html">Making Sense of Negative Dimensions</a></li>
+    <li> <a href="tetration.html">Generalizing Tetration to The Reals</a></li>
+</ul>
+
+<h2 id="a-call-to-action">A call to action</h2>
+We would like to call to action other researchers to modernize and make more-accessible their work.
+</div>
+</html>

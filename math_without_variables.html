@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<style type="text/css">
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html {
+        padding-bottom: 25px;
+    }
+
+    body {
+      font-size: 20px;
+    }
+
+    .inner, #wrap {
+      width:50%;
+      margin:auto;
+    }
+    
+    br {
+        display: block; /* makes it have a width */
+        content: ""; /* clears default height */
+        margin-top: 10px; /* change this to whatever height you want it */
+    }
+
+    a:link {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a[href*='//']:link {
+      color: #0088FF;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a:visited {
+      color: #FF4400;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a[href*='//']:visited {
+      color: #8800FF;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    
+    a:active {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #FF4400, #FF8800);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    h1:after
+    {
+        content:' ';
+        display:block;
+        border:1px solid #FF4400;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        background-image: linear-gradient(to right, #004488, #00FFFF);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        padding-bottom: 4px;
+        position: relative;
+    }
+
+    h2:before {
+        background: #f00;
+        background: linear-gradient(to right, #004488, #FFFFFF, #FFFFFF);  
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+    }
+
+    h3 {
+      font-size: 25px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #880044, #004488);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .header {
+      width:98%;
+      margin: auto;
+      overflow: hidden;
+      background-color: transparent;
+      padding: 0 0;
+    }
+
+    .header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+    }
+
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .header a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .header a.active {
+      background-color: #FF8800;
+      color: white;
+    }
+
+    .header-right {
+      float: right;
+    }
+
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+
+      .header-right {
+        float: none;
+      }
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    }
+  });
+</script>
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+<div class="header" style="position: sticky; top: 0;
+      background-color: #FFFFFF; z-index:100; box-shadow: 0 8px 6px -6px #FF4400;">
+  <a href="index.html" class="logo"><img src="yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
+  <div class="header-right">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </div>
+</div>
+
+<html>
+<title>Math Without Variables</title>
+<div id="wrap">
+<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 0 6px 6px #FFFFFF;"><h1>Math Without Variables</h1></div>
+
+<ul><li><a href="#idea">Idea</a></li>
+<ul><li><a href="#example">Example</a></li>
+<li><a href="#irony">Irony</a></li>
+</ul><li><a href="#polynomials-and-linear-operators">Polynomials and linear operators</a></li>
+<li><a href="#first-order-logic">First order logic</a></li>
+</ul>
+
+<h2 id="idea">Idea</h2>
+What would math be like without <a href="https://en.wikipedia.org/wiki/Variable_(mathematics)">variables</a>?
+
+<br>
+
+More specifically, what is the <a href="https://en.wikipedia.org/wiki/Canonical_form">canonical</a> <a href="https://en.wikipedia.org/wiki/Data_structure">data structure</a> behind mathematical concepts, independent of variables?
+
+<h3 id="example">Example</h3>
+Each of $\lambda x. x$, $a\mapsto a$ and $g(y)=y$, communicate the same concept, namely <a href="https://en.wikipedia.org/wiki/Identity_function">$\text{Id}$</a>, regardless of what symbol we use for variables.
+
+<h3 id="irony">Irony</h3>
+Ironically, much of this article makes use of variables to communicate the idea of not using them.
+
+<h2 id="polynomials-and-linear-operators">Polynomials and linear operators</h2>
+
+We may consider a <a href="https://en.wikipedia.org/wiki/Polynomial">polynomial</a> of one variable and of <a href="https://en.wikipedia.org/wiki/Degree_of_a_polynomial">degree</a> $n$,
+$$c_0+c_1x+c_2 x^2+\cdots+c_n x^n,$$
+as a <a href="https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)">vector</a> of their <a href="https://en.wikipedia.org/wiki/Coefficient">coefficients</a>,
+$$\langle c_0, c_1, c_2, \dots, c_n \rangle.$$
+
+Functions which are <a href="https://en.wikipedia.org/wiki/Analytic_function">analytic</a> at $x=0$ may be seen as the limit of $n\to\infty$. For instance,
+$$\exp = \left\langle 1, 1, \frac{1}{2}, \frac{1}{6}, \frac{1}{24}, \dots\right\rangle.$$
+However the <a href="https://en.wikipedia.org/wiki/Ellipsis#In_mathematical_notation">ellipsis</a> is hiding the fact that direct notation like this is formally inadequate to represent infinite structures. In any case, this has the added benefit that <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">matrices</a> are <a href="https://en.wikipedia.org/wiki/Linear_map">linear operators</a>, where operation is multiplication. For example, the <a href="https://en.wikipedia.org/wiki/Derivative#Derivative_as_a_function">differential operator</a> <a href="https://www.math.drexel.edu/~tolya/derivative">can be realized as the matrix</a>
+
+$$D = \begin{bmatrix} 0 & 1 & 0 & 0 & \cdots \\ 0 & 0 & 2 & 0 & \cdots \\ 0 & 0 & 0 & 3 & \cdots \\ 0 & 0 & 0 & 0 & \cdots \\ \vdots & \vdots & \vdots & \vdots & \ddots \\ \end{bmatrix}.$$
+
+<h2 id="first-order-logic">First order logic</h2>
+Consider the <a href="https://en.wikipedia.org/wiki/First-order_logic">first order logic</a> statement,
+    $$\forall x (x\in x \to \exists y(y \in x)).$$
+With the mild assumption that the <a href="https://en.wikipedia.org/wiki/Universe_(mathematics)">universe</a> is non-empty, we may convert this into <a href="https://en.wikipedia.org/wiki/Prenex_normal_form">prenex-normal form</a>
+$$\underbrace{\forall x\exists y}_{\text{prenex}} \underbrace{(x\in x \to y \in x)}_{\text{matrix}}.$$
+We may consider the prenex as an <a href="https://en.wikipedia.org/wiki/Tuple">tuple</a> of quantifiers, $(\forall, \exists)$ and the matrix as the set of all <a href="https://en.wikipedia.org/wiki/Logical_matrix">binary matrices</a> such that $M_{1,1}=1\implies M_{2,1}=1$. All together, we find an equivalent interpretation of this statement as,
+$$\begin{align*}
+    \bigg((\forall, \exists), \bigg\{&\begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix},\begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix},\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix},\begin{bmatrix} 0 & 1 \\ 0 & 1 \end{bmatrix},\\
+    &\begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix},\begin{bmatrix} 0 & 0 \\ 1 & 1 \end{bmatrix},\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix},\begin{bmatrix} 0 & 1 \\ 1 & 1 \end{bmatrix},\\
+    &\begin{bmatrix} 1 & 0 \\ 1 & 0 \end{bmatrix},\begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix},\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix},\begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}\bigg\}\bigg).
+\end{align*}$$
+
+Although we have successfully represented the original concept without variables, there are a few problems in extending this.
+
+<ul>
+    <li> This becomes exponentially inconvenient as the number of quantifiers increases.</li>
+    <li> Not all statements have a unique prenex-normal form, which would affect the order of the quantifiers, and the rows and columns of the matrices.</li>
+</ul>
+</div>
+</html>

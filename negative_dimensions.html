@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<style type="text/css">
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html {
+        padding-bottom: 25px;
+    }
+
+    body {
+      font-size: 20px;
+    }
+
+    .inner, #wrap {
+      width:50%;
+      margin:auto;
+    }
+    
+    br {
+        display: block; /* makes it have a width */
+        content: ""; /* clears default height */
+        margin-top: 10px; /* change this to whatever height you want it */
+    }
+
+    a:link {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a[href*='//']:link {
+      color: #0088FF;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a:visited {
+      color: #FF4400;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a[href*='//']:visited {
+      color: #8800FF;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    
+    a:active {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #FF4400, #FF8800);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    h1:after
+    {
+        content:' ';
+        display:block;
+        border:1px solid #FF4400;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        background-image: linear-gradient(to right, #004488, #00FFFF);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        padding-bottom: 4px;
+        position: relative;
+    }
+
+    h2:before {
+        background: #f00;
+        background: linear-gradient(to right, #004488, #FFFFFF, #FFFFFF);  
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+    }
+
+    h3 {
+      font-size: 25px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #880044, #004488);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .header {
+      width:98%;
+      margin: auto;
+      overflow: hidden;
+      background-color: transparent;
+      padding: 0 0;
+    }
+
+    .header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+    }
+
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .header a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .header a.active {
+      background-color: #FF8800;
+      color: white;
+    }
+
+    .header-right {
+      float: right;
+    }
+
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+
+      .header-right {
+        float: none;
+      }
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    }
+  });
+</script>
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+<div class="header" style="position: sticky; top: 0;
+      background-color: #FFFFFF; z-index:100; box-shadow: 0 8px 6px -6px #FF4400;">
+  <a href="index.html" class="logo"><img src="yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
+  <div class="header-right">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </div>
+</div>
+
+<html>
+<title>Negative Dimensions</title>
+<div id="wrap">
+<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 0 6px 6px #FFFFFF;"><h1>Making Sense of Negative Dimensions</h1></div>
+
+<ul><li><a href="#idea">Idea</a></li>
+<li><a href="#background">Background</a></li>
+<li><a href="#-initial-observations"> Initial observations</a></li>
+<li><a href="#regular-n-polytopes">Regular n-polytopes</a></li>
+<ul><li><a href="#(-1)-cells-as-negative-space">(-1)-cells as negative space</a></li>
+<li><a href="#euler-characteristic">Euler characteristic</a></li>
+<li><a href="#k-cubes-meeting-along-j-cubes">k-cubes meeting along j-cubes</a></li>
+</ul><li><a href="#n-spheres">n-spheres</a></li>
+<li><a href="#a-set-theoretical-approach">A set theoretical approach</a></li>
+</ul>
+
+<h2 id="idea">Idea</h2>
+
+How do we make sense of negative dimensions?
+
+<h2 id="background">Background</h2>
+
+$$\newcommand{\N}[0]{\mathbb{N}}
+\newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\Q}[0]{\mathbb{Q}}
+\newcommand{\R}[0]{\mathbb{R}}$$
+
+There is an anonymous quote that occasionally surfaces in higher mathematics along the lines of
+<p style="width:90%; margin:auto; margin-top: 1em; margin-bottom: 1em; color: #505080;">
+    "Once mathematicians start counting, they never stop."
+</p>
+Loosely speaking, it concerns the tendency of mathematicians to generalize structures to $n$-structures. This has proved very successful in a number of areas of mathematics. In fact, there exists a comprehensive online encyclopedia of many places in mathematics that this archetype arises, aptly called <a href="https://ncatlab.org/">nLab</a>. Just as with the evolution of human understanding of number systems, so too we find an even greater pattern in the evolution of the generalization of many structures, along the path of
+$$\{0\}\mapsto\N\mapsto\Z\mapsto\Q\mapsto\R\mapsto\cdots$$
+Hence, the step from structures to $n$-structures is often only the beginning. After we begin some sort of induction, we may then ask about going in the reverse direction, viz. into the negatives. This concept, called <a href="https://ncatlab.org/nlab/show/negative+thinking">negative thinking</a>, according to nLab,
+<p style="width:90%; margin:auto; margin-top: 1em; margin-bottom: 1em; color: #505080;">
+    "is a way of thinking about categorification by considering what the original concept is a categorification of. That is, to better understand how [structures] are categorified to become [2-structures], [3-structures], and so on, you think about how structures are themselves a categorification of [0-structures], [(-1)-structures], and so on. Generally, the concept of [n-structure] stops making sense for small values of n after a few steps, but it does make sense surprisingly often for at least some non-positive values. [...] More generally, [this concept] can apply whenever you have a sequence of mathematical objects and ask yourself what came before the beginning?"
+</p>
+But not all beginnings afford an easy journey. In particular, although it has been long-established that, not only is our algebra well-equipped to study geometry in $1$, $2$, and $3$-dimensions, but is also perfectly capable of describing $n$-dimensions for any $n\in\N$, we seem to hit an impassible singularity at $n=0$, with nothing but echoes of what structures lay beyond $n<0$. The concern of this article is to shed light on this mystery. That is to say, we look at how generalizing our understanding to negative dimensions thwarts most attempts, and despite this, why there might be good reason for studying such. At worst, this article symbolizes the impossibility of negative dimensions; and at best, a collection of facts about what exists within them.
+
+<h2 id="-initial-observations"> Initial observations</h2>
+
+Based on our understanding of non-negative dimensions, we may start collecting some questions about the expected behavior of negative dimensions.
+
+<ul>
+    <li> If $n$-volume scales by a power of $n$ with respect to distance, does negative-dimensional-volume decrease with respect to distance?</li>
+    <li> If lower dimensional shapes can be embedded in higher dimensions without losing any structure, but not vice-versa, can negative-dimensional objects can be embedded in non-negative dimensions without losing any structure, but not vice-versa?</li>
+    <ul>
+        <li> If so, does this mean that zero-dimensions has more structure than we think, or that negative-dimensions are trivial?</li>
+        <li> Similarly, if $n$-dimensional shapes have $(n-1)$-dimensional boundaries, does a ($0$-dimensional) <a href="https://ncatlab.org/nlab/show/point">point</a> have a $(-1)$-dimensional boundary?</li>
+    </ul>
+</ul>
+
+<h2 id="regular-n-polytopes">Regular n-polytopes</h2>
+
+
+<p style="text-align:center;"><img src="
+    regular_polytopes.png
+" alt="regular polytopes" style="width:60%" align="center"></p>
+$$\text{Figure 1. Wire-frame projections of $n$-simplices, $n$-cubes, and $n$-orthoplices for $0\leq n \leq 5$}.$$
+
+We may begin exploring what structures exist in negative dimensions by taking some family of shapes, which we know exist in $n\in\N$ dimensions, then simply observe the behaviour of their equations for $n<0$. A nice initial choice are the three families of regular polytopes, which are the <a href="https://en.wikipedia.org/wiki/Hypercube">$n$-cubes</a>, <a href="https://en.wikipedia.org/wiki/Simplex">$n$-simplices</a>, and <a href="https://en.wikipedia.org/wiki/Cross-polytope">$n$-otherplices</a>.
+
+Each of these families have simple equations for the number of vertices, edges, faces ($k=0,1,2$), etc, based on <a href="https://en.wikipedia.org/wiki/Binomial_coefficient">binomial coefficients</a>. The number of $k$-cells in an $n$-simplex, $n$-cube, and $n$-orthoplex, are respectively
+
+$$S(n,k)={{n+1}\choose{k+1}}\text{, }C(n,k)= 2^{n-k}{n \choose k}\text{, and }O(n,k)=2^{k+1}{n \choose {k + 1}}.$$
+
+<div id="calculator1" style="width: 100%; height: 400px; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 8px 6px -6px #004488;"><script>
+var elt = document.getElementById('calculator1');
+var calculator = Desmos.GraphingCalculator(elt, {colors: ["#000000", "#FF4400", "#004488", "#880044"]});
+    calculator.setExpression({ id: '1', latex: 'S(n,k)=\\nCr(n+1, k+1)', secret: true});
+    calculator.setExpression({ id: '2', latex: 'C(n,k)=2^{n-k}\\nCr(n, k)', secret: true});
+    calculator.setExpression({ id: '3', latex: 'O(n,k)=2^{k+1}\\nCr(n, k+1)', secret: true});
+    calculator.setExpression({ id: '4', latex: 'n_0=0', sliderBounds: {step: '1'}});
+    calculator.setExpression({ id: '5', latex: 'K=[-10,...,10]', secret: true });
+    calculator.setExpression({ id: '6', latex: '(K, S(n_0, K))', label: '${K}-cells', lines: true});
+    calculator.setExpression({ id: '7', latex: '(K, C(n_0, K))', label: '${K}-cells', lines: true});
+    calculator.setExpression({ id: '8', latex: '(K, O(n_0, K))', label: '${K}-cells', lines: true});
+calculator.setDefaultState(calculator.getState());</script></div>
+$$\text{Graph 1. Interactive graphs of $S(n,k)$, $C(n,k)$, and $O(n,k)$ for a fixed $n$.}$$
+
+Unlike other instances in mathematics where formulae spit out, say, an $\infty$, become discontinuous, or are otherwise undefined, to indicate a lack of reason to suspect a meaningful value for a given input, these formulae do none of those things for negative values. In fact, they're perfectly defined both for $n<0$ and $k<0$. Hence, they are excellent candidates to study what problems we may face when generalizing structures to negative dimensions. There are really $4^2=16$ cases to consider, which correspond to when the dimensions of $n$ or $k$ are positive, negative, zero and $-1$. The reason for $-1$ having its own case is an interesting discussion, which we save for a later section. With this is mind, we look at what values, $S, C$ and $O$ take on in all 16 cases.
+
+$$\begin{array}{ c | c | c | c | c | }
+        & k < -1 & k = -1  & k = 0 & k > 0 \\
+\hline
+n < -1 & \Z & \{0\} & \Q\cap (0, 1) & \Q_{\neq 0}\cap (-1, 1)\\
+\hline
+n = -1 & \Z_{\neq 0} & \{0\} & \left\{\frac{1}{2}\right\} & \Q_{>0}^{<1}\\
+\hline
+n = 0 & \{0\} & \{0\} & \{1\} & \{0\}\\
+\hline
+n > 0 & \{0\} & \{0\} & \Z^+ & \N\\
+\hline
+\end{array}$$
+
+
+$$\text{Table 1. Classes of values taken on by $C(n,k)$ in various cases.}$$
+
+$$\begin{array}{ c | c | c | c | c | }
+        & k < -1 & k = -1  & k = 0 & k > 0 \\
+\hline
+n < -1 & \Z & \{1\} & \Z^- & \Z_{\neq 0}\\
+\hline
+n = -1 & \{0\} & \{1\} & \{0\} & \{0\}\\
+\hline
+n = 0 & \{0\} & \{1\} & \{1\} & \{0\}\\
+\hline
+n > 0 & \{0\} & \{1\} & \Z^+ & \N\\
+\hline
+\end{array}$$
+
+$$\text{Table 2. Classes of values taken on by $S(n,k)$ in various cases.}$$
+
+$$\begin{array}{ c | c | c | c | c | }
+        & k < -1 & k = -1  & k = 0 & k > 0 \\
+\hline
+n < -1 & \Q_{\neq0}\cap (-1:1) & \{0\} & \Z^- & \Z_{\neq 0}\\
+\hline
+n = -1 & \Q_{\neq0}\cap (-1:1) & \{1\} & \{-2\} & \Z_{\neq 0}\\
+\hline
+n = 0 & 0 & \{1\} & \{0\} & \{0\}\\
+\hline
+n > 0 & 0 & \{1\} & \Z^+ & \N\\
+\hline
+\end{array}$$
+
+$$\text{Table 3. Classes of values taken on by $O(n,k)$ in various cases.}$$
+
+There are really only two things preventing us from fully making sense of the whole table of these tables, which is how to make sense of $n$-cells decomposing into a negative and / or fractional amount of $k$-cells. Fortunately, we may still make some sense of some special cases.
+
+For example, row 1 of Table 1 tells us that any positive-dimensional cube cannot be deconstructed into any negative-dimensional components, but can be into positive integer number of vertices, and a natural number of other positive-dimensional components. Furthermore,
+
+<h3 id="(-1)-cells-as-negative-space">(-1)-cells as negative space</h3>
+
+The second column of Table 2 indicates that a simplex of any dimension contains a singular $(-1)$-cell. This, in particular, is an interesting result, for it reveals that some positive-dimensional shapes may have negative-dimensional components, so we may not have to look further than the shapes we are already familiar with to yield some hints. For instance, according to $S(2,-1)=1$, a humble triangle (2-simplex) is comprised of a singular $(-1)$-cell. Exactly what part of it this corresponds to is a bit of a mystery, but it is worth considering.
+
+<br>
+
+In addition to these formulae being defined for negative values, there are two good reason to suspect that these values are not extraneous. The first is, less formally, the simplicity of them. To argue for other values would require modifying them in some non-trivial way. Secondly, more formally, <a href="https://polytope.miraheze.org/wiki/Dual_polytope">duality</a>. Given the fact that $n$-cubes are dual to $n$-orthoplices, and that $n$-simplices are dual to themselves, we expect the symmetries
+$$\begin{align*}
+    C\left(\frac{n-1}{2}-x,k\right) &= O\left(\frac{n-1}{2}+x,k\right), \\
+    S\left(\frac{n-1}{2}-x,k\right) &= S\left(\frac{n-1}{2}+x,k\right).
+\end{align*}$$
+For example, in the case of $n=3$, we find that edges are dual to edges, faces are dual to vertices, but also  that cells are dual to $(-1)$-cells. Hence, if we are to assume that $n$-simplices and $n$-cubes are composed of one $n$-cell, then we should expect $n$-simplices and $n$-orthoplices to contain one $(-1)$-cell. Interestingly however, this also implies that $n$-orthoplices are \textit{not} composed of any $n$-cells. This is peculiar because it is traditionally assumed that all $n$-polytopes are comprised of one $n$-cell, namely their own volume. However, in the case of 2D, we claim this is not so unusual. It is already well known that the <a href="https://en.wikipedia.org/wiki/Dual_graph">faces and vertices of graphs are dual to eachother</a>, and the exterior region of a graph is considered a face / vertex in its dual. Therefore, we conjecture that $(-1)$-cells can be thought of as the <i>negative</i> space around the shape, as is illustrated in Figure 1 by the thatched lines.
+
+<br>
+
+Under this interpretation we may realize that, canonically it would seem, $n$-cubes have only an interior, $n$-orthoplices have only an exterior, and $n$-simplices are expansive in all directions. As a rather bizarre historical coincidence, there is a natural correspondence to <a href="https://en.wikipedia.org/wiki/Platonic_solid#History">the ancient interpretation of the platonic solids</a>; 3-cubes representing earth, 3-orthoplicies (octohedra) representing air, and 3-simplices (tetrahedra) representing fire.
+
+<br>
+
+This also provides a reason why the 1-simplex, 1-cube, and 1-orthoplex are all <i>different</i> shapes (also 0-cube, 0-simplex, and 0-orthoplex). For example, a 0-simplex is a point with negative space, a 0-cube is just a point, and a 0-orthoplex is just negative space.
+
+<h3 id="euler-characteristic">Euler characteristic</h3>
+
+We must nevertheless be careful, however, to respect the <a href="https://en.wikipedia.org/wiki/Euler_characteristic">Euler characteristic</a>. If we extend the definition in the most natural way, we find the Euler characteristics of the $n$-cube, $n$-simplex, and $n$-orthoplex to be
+$$\begin{align*}
+    \chi_{C}(n) &= \sum_{k\in \Z}C(n,k) = 1,\\
+    \chi_{S}(n) &= \sum_{k\in \Z}S(n,k) = 0,\\
+    \chi_{O}(n) &= \sum_{k\in \Z}O(n,k) = -(-1)^n,
+\end{align*}$$
+respectively.
+
+<h3 id="k-cubes-meeting-along-j-cubes">k-cubes meeting along j-cubes</h3>
+
+Another interesting case within these tables which still provide some intuition are in the case of $n$-cubes. For one, all $k$-cells of an $n$-cube are $k$-cubes themselves. We may notice that a negative-dimensional cube may be deconstructed into a positive integer number of other negative-dimensional-cubes, when $n\equiv k\mod 2$ and $k\leq n$. For instance, $(-1)$-cube may be deconstructed into $4$ $(-3)$-cubes, a $(-3)$-cube is comprised of $24$ $(-5)$-cubes. However, a $(-1)$-cube itself is made up of $16$ $(-5)$-cubes, not $4\cdot24=96$. This makes sense, because although a regular cube, for another example, is comprised of 6 faces, and each face has 4 edges, a cube has 12 edges and not $6\cdot 4=24$. This is important to mention, because it tells us about its structure. For instance, the fact that the 24 edges of 6 faces reduces to 12 when forming a cube, reveals that the number of faces meeting at an edge is $\frac{24}{12}=2$. Therefore, by the same logic, since we have 96 $(-5)$-cubes of 4 $(-3)$-cubes reducing to 16 in composition of a $(-1)$-cube, this reveals that the number of $(-3)$-cubes meeting along a $(-5)$-cube is $\frac{96}{16}=6$.
+
+In general, in an $n$-cube, the number of $k$-cubes meeting along a $j$-cube is given by
+
+$$M_C(n,k,j)=\frac{C(n, k)C(j,k)}{C(n, j)}=\frac{{n \choose k}{k \choose j}}{{n \choose j}}=\frac{(n-j)!}{(n-k)!(k-j)!}.$$
+
+<h2 id="n-spheres">n-spheres</h2>
+
+Another simple class of shapes existing in $n$-dimensions are the <a href="https://en.wikipedia.org/wiki/N-sphere">$n$-spheres</a>. With the standard <a href="https://mathworld.wolfram.com/L2-Norm.html">Euclidean norm</a> and radius $R$, they have <a href="https://en.wikipedia.org/wiki/Volume_of_an_n-ball">$n$-volumes</a> and $n$-surface-areas defined by
+$$V_n=\frac{\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}+1\right)}R^n\text{ and }S_n=\frac{2\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}\right)}R^{n-1}.$$
+
+<div id="calculator2" style="width: 100%; height: 400px; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 8px 6px -6px #004488;"><script>
+var elt = document.getElementById('calculator2');
+var calculator = Desmos.GraphingCalculator(elt, {colors: ["#000000", "#FF4400", "#004488", "#880044"]});
+    calculator.setExpression({ id: '1', latex: 'R=1'});
+    calculator.setExpression({ id: '2', latex: 'V(n)=\\frac{\\pi^{\\frac{n}{2}}}{\\left(\\frac{n}{2}\\right)!}R^n'});
+    calculator.setExpression({ id: '3', latex: 'S(n)=\\frac{2\\pi^{\\frac{n}{2}}}{\\left(\\frac{n}{2}-1\\right)!}R^{n-1}'});
+calculator.setDefaultState(calculator.getState());</script></div>
+$$\text{Graph 2. Interactive graphs of $V_n$ and $S_n$ for a fixed $R$.}$$
+
+Since the <a href="https://en.wikipedia.org/wiki/Gamma_function">gamma function</a> has <a href="https://mathworld.wolfram.com/SimplePole.html">simple poles</a> at non-positive integers, we find that $n$-spheres must have zero $n$-volume and $n$-surface-area for $n\in\{-2,-4,-6,\dots\}$. However, other negative-dimensional-spheres for $n=\{-1,-3,-5,\dots\}$ are less trivial. For instance, the $(-1)$-sphere would appear to have a $(-1)$-volume and $(-1)$-surface area of
+$$V_{-1}=\frac{1}{\pi r}\text{ and }S_{-1}=-\frac{1}{\pi r^2}.$$
+
+It is not so difficult to show that the $n$-volume and $n$-surface-area of negative dimensional spheres have opposite signs of each other. However this does leave open the question of what negative values of these measures mean.
+
+<h2 id="a-set-theoretical-approach">A set theoretical approach</h2>
+
+One of the more canonical approaches to studying negative dimensions is through set theory. We may remember that <a href="https://math.stackexchange.com/a/901742/969809">the definition of $A^B$</a> is defined as the set of all functions from $B$ to $A$. For example, a coordinate $(x, y)\in\R^2$ is, strictly speaking, a function $(x, y):\{0, 1\}\mapsto \mathbb{R}$ s.t. $(x,y)(0)=x$ and $(x, y)(1)=y$, since $2:=\{0,1\}$ as a <a href="https://en.wikipedia.org/wiki/Set-theoretic_definition_of_natural_numbers">Von Neumann ordinal</a>. So, the problem of studying <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">$\R^n$</a> for negative $n$ reduces to finding a suitable definition while dropping the least relevant properties. Unfortunately, we must inevitably drop several important ones. For all $m,n\in\N$,
+
+<ul>
+    <li> $m+n\cong m\sqcup n$, but there does not exist any set $k\neq \emptyset$ s.t. $k\sqcup n\cong \emptyset$, if $n\neq \emptyset$. Thus, negatives cannot be defined by inverses of the <a href="https://en.wikipedia.org/wiki/Coproduct">coproduct</a>.</li>
+    <li> $m\le n\iff m\subseteq n$, but there does not exist any set $k\neq \emptyset$ s.t. $k\subseteq \emptyset$. Thus, negatives cannot be defined by applying the process of <a href="https://en.wikipedia.org/wiki/Mathematical_induction">induction</a> backwards.</li>
+</ul>
+
+Notice, however, that these problems really only arise from questioning how to connect the negatives to $0$. That is to say, it <i>is</i> possible to define a set of negatives where $m+n\cong m\sqcup n$ and $m\le n\iff m\subseteq n$ for any $m,n\in\Z^-$, however we would have to perform some surgery to these definitions of addition and order to bridge the gap with the naturals.
+
+<br>
+
+Furthermore, natural numbers are considered equivalent up to equivalence of cardinality. Hence, without dropping this condition, any suitable choice for the negatives must not only have infinite cardinality, but all be uncountable except for at most one, in order to be distinct from the naturals and from eachother. That is, unless we find a suitable definition for negative cardinality.
+</div>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<style type="text/css">
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html {
+        padding-bottom: 25px;
+    }
+
+    body {
+      font-size: 20px;
+    }
+
+    .inner, #wrap {
+      width:50%;
+      margin:auto;
+    }
+    
+    br {
+        display: block; /* makes it have a width */
+        content: ""; /* clears default height */
+        margin-top: 10px; /* change this to whatever height you want it */
+    }
+
+    a:link {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a[href*='//']:link {
+      color: #0088FF;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a:visited {
+      color: #FF4400;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a[href*='//']:visited {
+      color: #8800FF;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    
+    a:active {
+      color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #FF4400, #FF8800);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    h1:after
+    {
+        content:' ';
+        display:block;
+        border:1px solid #FF4400;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        background-image: linear-gradient(to right, #004488, #00FFFF);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        padding-bottom: 4px;
+        position: relative;
+    }
+
+    h2:before {
+        background: #f00;
+        background: linear-gradient(to right, #004488, #FFFFFF, #FFFFFF);  
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+    }
+
+    h3 {
+      font-size: 25px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #880044, #004488);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .header {
+      width:98%;
+      margin: auto;
+      overflow: hidden;
+      background-color: transparent;
+      padding: 0 0;
+    }
+
+    .header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+    }
+
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .header a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .header a.active {
+      background-color: #FF8800;
+      color: white;
+    }
+
+    .header-right {
+      float: right;
+    }
+
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+
+      .header-right {
+        float: none;
+      }
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    }
+  });
+</script>
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+<div class="header" style="position: sticky; top: 0;
+      background-color: #FFFFFF; z-index:100; box-shadow: 0 8px 6px -6px #FF4400;">
+  <a href="index.html" class="logo"><img src="yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
+  <div class="header-right">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </div>
+</div>
+
+<html>
+<title>Closed Form Expressions</title>
+<div id="wrap">
+<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 0 6px 6px #FFFFFF;"><h1>Elementary and Closed Form Functions</h1></div>
+
+<ul><li><a href="#idea">Idea</a></li>
+<ul><li><a href="#note">Note</a></li>
+<li><a href="#corollaries">Corollaries</a></li>
+</ul><li><a href="#difference-between-elementary-and-closed-form">Difference between elementary and closed-form</a></li>
+<li><a href="#ability-of-branch-choice">Ability of branch choice</a></li>
+</ul>
+
+<h2 id="idea">Idea</h2>
+In the context of this site, we define the <i>elementary functions</i> according to a minimal construction. Over <a href="https://en.wikipedia.org/wiki/Complex_number">$\mathbb{C}$</a>,
+<ul>
+    <li> The <a href="https://en.wikipedia.org/wiki/Identity_function">identity function</a> is considered elementary,</li>
+    <li> Any <a href="https://en.wikipedia.org/wiki/Constant_function">constant function</a> is considered elementary,</li>
+    <li> $f+g$ is considered elementary,</li>
+    <li> $-f$ is considered elementary,</li>
+    <li> $\exp f$ is considered elementary,</li>
+    <li> $\ln f$ is considered elementary (under any choice of <a href="https://en.wikipedia.org/wiki/Complex_logarithm#Branches_of_the_complex_logarithm">branch</a>),</li>
+</ul>
+for all elementary functions $f$ and $g$. Finally, we consider an expression to be in <i>closed-form</i> if it can be equivalently expressed as a finite combination of elementary functions, even if the number of operations grows (perhaps unbounded) with the variation of its parameters.
+
+<h3 id="note">Note</h3>
+Being dependent on context, there is no universally accepted definition for the terms <i>elementary</i> or <i>closed-form</i>.
+
+<h3 id="corollaries">Corollaries</h3>
+We may realize that our definition implies the following operations are also elementary.
+<ul>
+    <li> Multiplication: $fg=\exp(\ln f + \ln g)$.</li>
+    <li> Exponentiation: $f^g=\exp(g\ln f)$.</li>
+    <li> Reciprocals: $\frac{1}{g}=\exp(-\ln f)$.</li>
+    <li> Division: $\frac{f}{g} = f\frac{1}{g}$.</li>
+    <li> Roots: $\sqrt[g]{f}=f^{\frac{1}{g}}$.</li>
+    <li> Logarithms: $\log_g f = \frac{\ln f}{\ln g}$.</li>
+    <li> Trigonometric functions: e.g; $\cos z = \frac{\exp (i z)+\exp (-i z)}{2}$.</li>
+</ul>
+
+<h2 id="difference-between-elementary-and-closed-form">Difference between elementary and closed-form</h2>
+There are two important differences in our definitions of elementary and closed-form.
+<ul>
+    <li> Something can <i>have</i> a closed-form but not <i>be</i> elementary. (E.g; the <a href="https://en.wikipedia.org/wiki/Taylor_series">taylor series</a> of $\cos$ is not elementary, but it has a closed-form in terms of <a href="https://mathworld.wolfram.com/ComplexExponentiation.html">complex exponentiation</a>). Basically, $\text{elementary}\implies\text{closed-form}$ but not <a href="https://en.wikipedia.org/wiki/Converse_(logic)">conversely</a>, necessarily.</li>
+    <li> Elementary functions have a fixed number of operations, whereas the number of operations in a closed-form function may vary with respect to its parameters (e.g; <a href="https://en.wikipedia.org/wiki/Tetration">tetration</a> has a closed form as a finite number of exponentations, but the number of exponentiations varies with respect to its height).</li>
+</ul>
+
+<h2 id="ability-of-branch-choice">Ability of branch choice</h2>
+The idea that any choice of branch of the logarithm is included in the definition is perhaps controversial, for it allows for some powerful functions to be considered elementary. For instance,
+<ul>
+    <li> If we choose our branches such that $0\le \frac{1}{i}\ln e^{i\theta} < 2\pi$, then we may define the <a href="https://en.wikipedia.org/wiki/Modulo">modulo operator</a> $x\!\mod y:= \frac{y}{2\pi i}\ln e^{\frac{2\pi i x}{y}}$, which is elementary, by our definition.</li>
+    <li> We may then define the <a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions">floor function</a> as $[x]:=x-(x\!\mod 1)$.</li>
+    <li> Similarly, the <a href="https://en.wikipedia.org/wiki/Absolute_value">absolute value function</a> may be defined as $x=\sqrt{x^2}$ for real numbers.</li>
+</ul>
+Interestingly, this ability (tied to the properties of complex numbers) inherently gives rise to the construction of <a href="arithmetic_indicators.html">arithmetic indicators</a>.
+</div>
+</html>
