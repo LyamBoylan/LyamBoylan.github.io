@@ -4,6 +4,13 @@
     html, body {
         margin: 0;
         padding: 0;
+        background:
+        radial-gradient(white 15%, transparent 16%) 0 0,
+        radial-gradient(white 15%, transparent 16%) 8px 8px,
+        radial-gradient(rgba(0,0,0,.1) 15%, transparent 20%) 0 1px,
+        radial-gradient(rgba(0,0,0,.1) 15%, transparent 20%) 8px 9px;
+        background-color: #FFFFFF;
+        background-size:16px 16px;
     }
     
     html {
@@ -11,19 +18,15 @@
     }
 
     body {
-      font-size: 20px;
+        font-size: 20px;
     }
 
     .inner, #wrap {
-      width:50%;
-      margin:auto;
-    }
-
-    @media (max-width: 1080px) { 
-        .inner, #wrap {
-          width:90%;
-          margin:auto;
-        }
+        max-width: 1920px; /*provides maximum, in case screen is huge*/
+        width: 50%;   /*keeps body text width resonable*/
+        margin: 0 auto;  /*centers main on page*/
+        background: #FFFFFF;
+        box-shadow: 0 0 100px 100px #FFFFFF;
     }
     
     br {
@@ -33,54 +36,54 @@
     }
 
     a:link {
-      color: #FF8800;
-      background-color: transparent;
-      text-decoration: none;
+        color: #FF8800;
+        background-color: transparent;
+        text-decoration: none;
     }
     
     a[href*='//']:link {
-      color: #0088FF;
-      background-color: transparent;
-      text-decoration: none;
+        color: #0088FF;
+        background-color: transparent;
+        text-decoration: none;
     }
     
     a:visited {
-      color: #FF4400;
-      background-color: transparent;
-      text-decoration: none;
+        color: #FF4400;
+        background-color: transparent;
+        text-decoration: none;
     }
     
     a[href*='//']:visited {
-      color: #8800FF;
-      background-color: transparent;
-      text-decoration: none;
+        color: #8800FF;
+        background-color: transparent;
+        text-decoration: none;
     }
     
     a:hover {
-      color: #FF8800;
-      background-color: transparent;
-      text-decoration: underline;
+        color: #FF8800;
+        background-color: transparent;
+        text-decoration: underline;
     }
     
     a:active {
-      color: #FF8800;
-      background-color: transparent;
-      text-decoration: underline;
+        color: #FF8800;
+        background-color: transparent;
+        text-decoration: underline;
     }
 
     a[href*='//']:hover {
-      color: #0088FF;
-      background-color: transparent;
-      text-decoration: underline;
+        color: #0088FF;
+        background-color: transparent;
+        text-decoration: underline;
     }
 
     h1 {
-      font-size: 40px;
-      font-weight: 600;
-      background-image: linear-gradient(to right, #FF4400, #FF8800);
-      color: transparent;
-      background-clip: text;
-      -webkit-background-clip: text;
+        font-size: 40px;
+        font-weight: 600;
+        background-image: linear-gradient(to right, #FF4400, #FF8800);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
     }
 
     h1:after
@@ -113,73 +116,111 @@
     }
 
     h3 {
-      font-size: 25px;
-      font-weight: 600;
-      background-image: linear-gradient(to right, #880044, #004488);
-      color: transparent;
-      background-clip: text;
-      -webkit-background-clip: text;
+        font-size: 25px;
+        font-weight: 600;
+        background-image: linear-gradient(to right, #880044, #004488);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
     }
 
     .header {
-      width:98%;
-      margin: auto;
-      overflow: hidden;
-      background-color: transparent;
-      padding: 0 0;
+        width:98%;
+        margin: auto;
+        overflow: hidden;
+        background-color: transparent;
+        padding: 0 0;
     }
 
     .header a {
-      float: left;
-      color: black;
-      text-align: center;
-      padding: 12px;
-      text-decoration: none;
-      font-size: 18px;
-      line-height: 25px;
-      border-radius: 4px;
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 25px;
+        border-radius: 4px;
     }
 
     .header a.logo {
-      font-size: 25px;
-      font-weight: bold;
+        font-size: 25px;
+        font-weight: bold;
     }
 
     .header a:hover {
-      background-color: #ddd;
-      color: black;
+        background-color: #ddd;
+        color: black;
     }
 
     .header a.active {
-      background-color: #FF8800;
-      color: white;
+        background-color: #FF8800;
+        color: white;
     }
 
     .header-right {
-      float: right;
+        float: right;
     }
 
     @media screen and (max-width: 500px) {
-      .header a {
-        float: none;
-        display: block;
-        text-align: left;
-      }
+        .header a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
 
-      .header-right {
-        float: none;
-      }
+        .header-right {
+            float: none;
+        }
+    }
+    
+    .sidenote,
+    .marginnote {
+        float: right;
+        clear: right;
+        margin-right: -50%;
+        width: 50%;
+        margin-top: 0.3rem;
+        margin-bottom: 0;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        vertical-align: baseline;
+        position: relative;
+        color: #FF4400;
+        background: #FFFFFF;
+        box-shadow: 0 0 20px 20px #FFFFFF;
+    }
+    
+    label.sidenote-number {
+        display: inline;
+    }
+    
+    /* The mobile fallback: */
+    @media (max-width: 760px) {
+        .sidenote,
+        .marginnote {
+            display: block;
+            float: left;
+            left: 1rem;
+            clear: both;
+            width: 95%;
+            margin: 1rem 2.5%;
+            vertical-align: baseline;
+            position: relative;
+        }
+    }
 </style>
 
 <head>
 
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      processEscapes: true
-    }
-  });
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            displayMath: [ ['$$','$$'] ],
+            processEscapes: true
+        }
+    });
 </script>
     
 <script type="text/javascript"
@@ -191,37 +232,33 @@
 </head>
 
 <body>
-<div class="header" style="position: sticky; top: 0;
-      background-color: #FFFFFF; z-index:100; box-shadow: 0 12px 6px -6px #FF4400;">
-  <a href="index.html" class="logo"><img src="images/yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
-  <div class="header-right">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-  </div>
+<div class="header" style="position: sticky; top: 0; background-color: #FFFFFF; z-index:100; box-shadow: 0 12px 6px -6px #FF4400;">
+    <a href="index.html" class="logo"><img src="images/yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
+    <div class="header-right">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+    </div>
 </div>
 <title>Math Without Variables</title>
 <div id="wrap">
-<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 -12px 6px 6px #FFFFFF;"><h1>Math Without Variables</h1></div>
+<div style="position: sticky; top: 2px; z-index:100;"><h1>Math Without Variables</h1></div>
 
 <ul><li><a href="#idea">Idea</a></li>
 <ul><li><a href="#example">Example</a></li>
-<li><a href="#irony">Irony</a></li>
 </ul><li><a href="#polynomials-and-linear-operators">Polynomials and linear operators</a></li>
 <li><a href="#first-order-logic">First order logic</a></li>
+<li><a href="#articles-referencing-here">Articles referencing here</a></li>
 </ul>
 
 <h2 id="idea">Idea</h2>
-What would math be like without <a href="https://en.wikipedia.org/wiki/Variable_(mathematics)">variables</a>?
+What would math be like without <a href="https://en.wikipedia.org/wiki/Variable_(mathematics)">variables</a>?<sup style="color: #FF4400">[1]</sup><span class="sidenote"><sup>[1] </sup>Ironically, much of this article makes use of variables to communicate the idea of not using them.</span>
 
 <br>
 
 More specifically, what is the <a href="https://en.wikipedia.org/wiki/Canonical_form">canonical</a> <a href="https://en.wikipedia.org/wiki/Data_structure">data structure</a> behind mathematical concepts, independent of variables?
 
 <h3 id="example">Example</h3>
-Each of $\lambda x. x$, $a\mapsto a$ and $g(y)=y$, communicate the same concept, namely <a href="https://en.wikipedia.org/wiki/Identity_function">$\text{Id}$</a>, regardless of what symbol we use for variables.
-
-<h3 id="irony">Irony</h3>
-Ironically, much of this article makes use of variables to communicate the idea of not using them.
+Each of $f(x)=x$, $a\mapsto a$, and $\lambda y. y$ communicate the same concept, namely <a href="https://en.wikipedia.org/wiki/Identity_function">$\text{Id}$</a>, regardless of what symbol we use for variables.
 
 <h2 id="polynomials-and-linear-operators">Polynomials and linear operators</h2>
 
@@ -253,5 +290,9 @@ Although we have successfully represented the original concept without variables
 <ul>
     <li> This becomes exponentially inconvenient as the number of quantifiers increases.</li>
     <li> Not all statements have a unique prenex-normal form, which would affect the order of the quantifiers, and the rows and columns of the matrices.</li>
+</ul>
+<h2 id="articles-referencing-here">Articles referencing here</h2>
+<ul>
+<li> <a href="about.html">About</a></li>
 </ul>
 </body>
