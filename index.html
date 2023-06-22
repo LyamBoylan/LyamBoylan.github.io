@@ -22,7 +22,8 @@
     }
 
     .inner, #wrap {
-        max-width: 1920px; /*provides maximum, in case screen is huge*/
+        min-width: 500px; /*provides minimum, in case screen is tiny*/
+        max-width: 1440px; /*provides maximum, in case screen is huge*/
         width: 50%;   /*keeps body text width resonable*/
         margin: 0 auto;  /*centers main on page*/
         background: #FFFFFF;
@@ -196,7 +197,7 @@
     }
     
     /* The mobile fallback: */
-    @media (max-width: 760px) {
+    @media (max-width: 720px) {
         .sidenote,
         .marginnote {
             display: block;
@@ -239,7 +240,7 @@
         <a href="about.html">About</a>
     </div>
 </div>
-<title>Index</title>
+<title>yamResearch</title>
 <div id="wrap">
 <div style="position: sticky; top: 2px; z-index:100;"><h1>Home</h1></div>
 

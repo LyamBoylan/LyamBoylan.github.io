@@ -22,7 +22,8 @@
     }
 
     .inner, #wrap {
-        max-width: 1920px; /*provides maximum, in case screen is huge*/
+        min-width: 500px; /*provides minimum, in case screen is tiny*/
+        max-width: 1440px; /*provides maximum, in case screen is huge*/
         width: 50%;   /*keeps body text width resonable*/
         margin: 0 auto;  /*centers main on page*/
         background: #FFFFFF;
@@ -196,7 +197,7 @@
     }
     
     /* The mobile fallback: */
-    @media (max-width: 760px) {
+    @media (max-width: 720px) {
         .sidenote,
         .marginnote {
             display: block;
@@ -252,7 +253,9 @@
 <li><a href="#k-cubes-meeting-along-j-cubes">k-cubes meeting along j-cubes</a></li>
 </ul><li><a href="#n-spheres">n-spheres</a></li>
 <li><a href="#a-set-theoretical-approach">A set theoretical approach</a></li>
-<li><a href="#articles-referencing-here">Articles referencing here</a></li>
+<li><a href="#negative-hausdorff-dimension">Negative Hausdorff dimension</a></li>
+<ul><li><a href="#-existence-of-a-trivial-example"> Existence of a trivial example</a></li>
+</ul><li><a href="#articles-referencing-here">Articles referencing here</a></li>
 </ul>
 
 <h2 id="idea">Idea</h2>
@@ -386,7 +389,7 @@ For example, in the case of $n=3$, we find that edges are dual to edges, faces a
 
 <br>
 
-Under this interpretation we may realize that, canonically it would seem, $n$-cubes have only an interior, $n$-orthoplices have only an exterior, and $n$-simplices are expansive in all directions. As a rather bizarre historical coincidence, there is a natural correspondence to <a href="https://en.wikipedia.org/wiki/Platonic_solid#History">the ancient interpretation of the platonic solids</a>; 3-cubes representing earth, 3-orthoplicies (octohedra) representing air, and 3-simplices (tetrahedra) representing fire.
+Under this interpretation we may realize that, canonically it would seem, $n$-cubes have only an interior, $n$-orthoplices have only an exterior, and $n$-simplices are expansive in all directions. <sup style="color: #FF4400">[1]</sup><span class="sidenote"><sup>[1] </sup>As a rather bizarre historical coincidence, there is a natural correspondence to <a href="https://en.wikipedia.org/wiki/Platonic_solid#History">the ancient interpretation of the platonic solids</a>; 3-cubes representing earth, 3-orthoplicies (octohedra) representing air, and 3-simplices (tetrahedra) representing fire.</span>
 
 <br>
 
@@ -443,6 +446,30 @@ Notice, however, that these problems really only arise from questioning how to c
 <br>
 
 Furthermore, natural numbers are considered equivalent up to equivalence of cardinality. Hence, without dropping this condition, any suitable choice for the negatives must not only have infinite cardinality, but all be uncountable except for at most one, in order to be distinct from the naturals and from eachother. That is, unless we find a suitable definition for negative cardinality.
+
+<h2 id="negative-hausdorff-dimension">Negative Hausdorff dimension</h2>
+There is already some notion of non-natural number dimensions for instance, in that of <a href="https://en.wikipedia.org/wiki/Hausdorff_dimension">Hausdorff dimensions</a>. It is a known result that, loosely speaking, if a fractal is a union of $b$ copies of itself, each scaled by a factor of $a^{-1}$, then it has a Hausdorff dimension of $\log_b(a)$. For instance, the <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Sierpinski triangle</a> can be thought of as containing 3 copies of itself scaled by a factor of $\frac{1}{2}$, <a href="https://en.wikipedia.org/wiki/Hausdorff_dimension#Examples">hence having Hausdorff dimension of $\log_3(2)\approx 1.58$</a><sup style="color: #FF4400">[2]</sup><span class="sidenote"><sup>[2] </sup>This may be thought of as something of a measure of the <a href="https://en.wikipedia.org/wiki/Degrees_of_freedom">degrees of freedom</a> of a point "living" in it.</span>. In any case, should this notion hold more generally, if there exists a shape which is the union of 2 copies of itself, each scaled by a factor of 2, then this measure $\log_b(a)$ is precisely $-1$. At present, it is unclear if such a shape exists.
+
+<h3 id="-existence-of-a-trivial-example"> Existence of a trivial example</h3>
+
+We may nevertheless speculate about a trivial example embedded in $\N$.
+
+<br>
+
+Does there exist some $C\subseteq \N$, s.t. there exists $A,B\subseteq C$ s.t.
+<ul>
+    <li> $A=\{2n+k_A:n\in C\}$ for some $k_A\in\N$,</li>
+    <li> $B=\{2n+k_B:n\in C\}$ for some $k_B\in\N$,</li>
+    <li> $A\cup B=C$, and</li>
+    <li> $A\cap B=\emptyset$?</li>
+</ul>
+I.e; $C$ is the union of two copies of itself, $A$ and $B$, each scaled by a factor of $2$ and shifted by $k_A$ and $k_B$ respectively. It is not so difficult to show that for any $n\in C$, we must also have $2^k n + \alpha k_A+\beta k_B\in C$, for any $k\in\N$ and $\alpha,\beta\in\N$, s.t. $\alpha+\beta=2^k-1$. <a href="https://en.wikipedia.org/wiki/Without_loss_of_generality">Without loss of generality</a>, we may assume $0\in C$ and take the case that $n=0$. Hence,
+<ul>
+    <li> $\alpha k_A+\beta k_B\in A$ whenever $\alpha\equiv 1\mod 2$, otherwise</li>
+    <li> $\alpha k_A+\beta k_B\in B$, for any $k\in\N$.</li>
+</ul>
+
+This line of reasoning is to be continued...
 <h2 id="articles-referencing-here">Articles referencing here</h2>
 <ul>
 <li> <a href="about.html">About</a></li>
