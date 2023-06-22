@@ -7,7 +7,7 @@
     }
     
     html {
-        padding-bottom: 25px;
+        padding-bottom: 100px;
     }
 
     body {
@@ -17,6 +17,13 @@
     .inner, #wrap {
       width:50%;
       margin:auto;
+    }
+
+    @media (max-width: 1080px) { 
+        .inner, #wrap {
+          width:90%;
+          margin:auto;
+        }
     }
     
     br {
@@ -57,6 +64,12 @@
     
     a:active {
       color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    a[href*='//']:hover {
+      color: #0088FF;
       background-color: transparent;
       text-decoration: underline;
     }
@@ -158,6 +171,8 @@
       }
 </style>
 
+<head>
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -173,19 +188,20 @@
 
 <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
+</head>
+
+<body>
 <div class="header" style="position: sticky; top: 0;
-      background-color: #FFFFFF; z-index:100; box-shadow: 0 8px 6px -6px #FF4400;">
-  <a href="index.html" class="logo"><img src="yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
+      background-color: #FFFFFF; z-index:100; box-shadow: 0 12px 6px -6px #FF4400;">
+  <a href="index.html" class="logo"><img src="images/yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
   <div class="header-right">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
   </div>
 </div>
-
-<html>
 <title>Math Without Variables</title>
 <div id="wrap">
-<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 0 6px 6px #FFFFFF;"><h1>Math Without Variables</h1></div>
+<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 -12px 6px 6px #FFFFFF;"><h1>Math Without Variables</h1></div>
 
 <ul><li><a href="#idea">Idea</a></li>
 <ul><li><a href="#example">Example</a></li>
@@ -238,5 +254,4 @@ Although we have successfully represented the original concept without variables
     <li> This becomes exponentially inconvenient as the number of quantifiers increases.</li>
     <li> Not all statements have a unique prenex-normal form, which would affect the order of the quantifiers, and the rows and columns of the matrices.</li>
 </ul>
-</div>
-</html>
+</body>

@@ -7,7 +7,7 @@
     }
     
     html {
-        padding-bottom: 25px;
+        padding-bottom: 100px;
     }
 
     body {
@@ -17,6 +17,13 @@
     .inner, #wrap {
       width:50%;
       margin:auto;
+    }
+
+    @media (max-width: 1080px) { 
+        .inner, #wrap {
+          width:90%;
+          margin:auto;
+        }
     }
     
     br {
@@ -57,6 +64,12 @@
     
     a:active {
       color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    a[href*='//']:hover {
+      color: #0088FF;
       background-color: transparent;
       text-decoration: underline;
     }
@@ -158,6 +171,8 @@
       }
 </style>
 
+<head>
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -173,19 +188,20 @@
 
 <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
+</head>
+
+<body>
 <div class="header" style="position: sticky; top: 0;
-      background-color: #FFFFFF; z-index:100; box-shadow: 0 8px 6px -6px #FF4400;">
-  <a href="index.html" class="logo"><img src="yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
+      background-color: #FFFFFF; z-index:100; box-shadow: 0 12px 6px -6px #FF4400;">
+  <a href="index.html" class="logo"><img src="images/yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
   <div class="header-right">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
   </div>
 </div>
-
-<html>
 <title>Closed Form Expressions</title>
 <div id="wrap">
-<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 0 6px 6px #FFFFFF;"><h1>Elementary and Closed Form Functions</h1></div>
+<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 -12px 6px 6px #FFFFFF;"><h1>Elementary and Closed Form Functions</h1></div>
 
 <ul><li><a href="#idea">Idea</a></li>
 <ul><li><a href="#note">Note</a></li>
@@ -225,7 +241,7 @@ We may realize that our definition implies the following operations are also ele
 There are two important differences in our definitions of elementary and closed-form.
 <ul>
     <li> Something can <i>have</i> a closed-form but not <i>be</i> elementary. (E.g; the <a href="https://en.wikipedia.org/wiki/Taylor_series">taylor series</a> of $\cos$ is not elementary, but it has a closed-form in terms of <a href="https://mathworld.wolfram.com/ComplexExponentiation.html">complex exponentiation</a>). Basically, $\text{elementary}\implies\text{closed-form}$ but not <a href="https://en.wikipedia.org/wiki/Converse_(logic)">conversely</a>, necessarily.</li>
-    <li> Elementary functions have a fixed number of operations, whereas the number of operations in a closed-form function may vary with respect to its parameters (e.g; <a href="https://en.wikipedia.org/wiki/Tetration">tetration</a> has a closed form as a finite number of exponentations, but the number of exponentiations varies with respect to its height).</li>
+    <li> Elementary functions have a fixed number of operations, whereas the number of operations in a closed-form function may vary with respect to its parameters (e.g; <a href="https://en.wikipedia.org/wiki/Tetration">tetration</a> has a closed-form as a finite number of exponentations, but the number of exponentiations varies with respect to its height).</li>
 </ul>
 
 <h2 id="ability-of-branch-choice">Ability of branch choice</h2>
@@ -236,5 +252,4 @@ The idea that any choice of branch of the logarithm is included in the definitio
     <li> Similarly, the <a href="https://en.wikipedia.org/wiki/Absolute_value">absolute value function</a> may be defined as $x=\sqrt{x^2}$ for real numbers.</li>
 </ul>
 Interestingly, this ability (tied to the properties of complex numbers) inherently gives rise to the construction of <a href="arithmetic_indicators.html">arithmetic indicators</a>.
-</div>
-</html>
+</body>

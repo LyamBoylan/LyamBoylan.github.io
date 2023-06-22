@@ -7,7 +7,7 @@
     }
     
     html {
-        padding-bottom: 25px;
+        padding-bottom: 100px;
     }
 
     body {
@@ -17,6 +17,13 @@
     .inner, #wrap {
       width:50%;
       margin:auto;
+    }
+
+    @media (max-width: 1080px) { 
+        .inner, #wrap {
+          width:90%;
+          margin:auto;
+        }
     }
     
     br {
@@ -57,6 +64,12 @@
     
     a:active {
       color: #FF8800;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    a[href*='//']:hover {
+      color: #0088FF;
       background-color: transparent;
       text-decoration: underline;
     }
@@ -158,6 +171,8 @@
       }
 </style>
 
+<head>
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -173,19 +188,20 @@
 
 <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
+</head>
+
+<body>
 <div class="header" style="position: sticky; top: 0;
-      background-color: #FFFFFF; z-index:100; box-shadow: 0 8px 6px -6px #FF4400;">
-  <a href="index.html" class="logo"><img src="yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
+      background-color: #FFFFFF; z-index:100; box-shadow: 0 12px 6px -6px #FF4400;">
+  <a href="index.html" class="logo"><img src="images/yamresearch_logo_wide.png" alt="yamLab logo" style="height:25px"></a>
   <div class="header-right">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
   </div>
 </div>
-
-<html>
 <title>Tetration</title>
 <div id="wrap">
-<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 0 6px 6px #FFFFFF;"><h1>Extending Tetration to The Reals</h1></div>
+<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 -12px 6px 6px #FFFFFF;"><h1>Extending Tetration to The Reals</h1></div>
 
 <ul><li><a href="#idea">Idea</a></li>
 <li><a href="#backround">Backround</a></li>
@@ -258,7 +274,7 @@ $$\phi(x)=(6-2\sqrt{6})x+\frac{1}{5}\left((-36+14\sqrt{6})x^2+(-28+12\sqrt{6})x^
 
 which, interestingly, has coefficients which are all elements of <a href="https://en.wikipedia.org/wiki/Field_extension#Examples">$\mathbb{Q}(\sqrt{6})$</a>.
 
-<div id="calculator1" style="width: 100%; height: 400px; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 8px 6px -6px #004488;"><script>
+<div id="calculator1" style="width: 100%; height: 400px; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 0 12px -6px #004488;"><script>
 var elt = document.getElementById('calculator1');
 var calculator = Desmos.GraphingCalculator(elt, {colors: ["#000000", "#FF4400", "#004488", "#880044"]});
     calculator.setExpression({ id: '1', hidden: true, latex: '\\phi(x)=\\left(6-2\\sqrt{6}\\right)x+\\frac{1}{5}\\left(\\left(-36+14\\sqrt{6}\\right)x^{2}+\\left(-28+12\\sqrt{6}\\right)x^{3}+\\left(39-16\\sqrt{6}\\right)x^{4}\\right)'});
@@ -269,7 +285,7 @@ $$\text{Graph 1. Interactive graph of $f(x)$ given our $n=3$ approximation for $
 
 <a href="https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations">Numerical methods</a> have also provided us with an approximate solution up to order $n=18$.
 
-<div id="calculator2" style="width: 100%; height: 400px; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 8px 6px -6px #004488;"><script>
+<div id="calculator2" style="width: 100%; height: 400px; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 0 12px -6px #004488;"><script>
 var elt = document.getElementById('calculator2');
 var calculator = Desmos.GraphingCalculator(elt, {colors: ["#000000", "#FF4400", "#004488", "#880044"]});
     calculator.setExpression({ id: '1', hidden: true, latex: 'c=[1.06606589672371, -0.142861125691587, 0.401961930314920, -0.700101123652729, 0.154038750687166, 0.280962624447904, 0.235183823657992, -0.366670169638522, -0.00315632308278816, -0.00164526965591178, 0.180674763990787, -0.114985505039532, 0.0218340329147688, -0.0666516109155579, 0.101045846242304, -0.0609293478835941, 0.0171192137150964, -0.00188640713442391]'});
@@ -278,5 +294,4 @@ var calculator = Desmos.GraphingCalculator(elt, {colors: ["#000000", "#FF4400", 
     calculator.setExpression({ id: '4', latex: 'y=f(x)'});
 calculator.setDefaultState(calculator.getState());</script></div>
 $$\text{Graph 2. Interactive graph of $f(x)$ given our $n=18$ approximation for $\phi(x)$.}$$
-</div>
-</html>
+</body>

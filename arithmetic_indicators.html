@@ -199,27 +199,56 @@
     <a href="about.html">About</a>
   </div>
 </div>
-<title>Digit Function</title>
+<title>Arithmetic Indicators</title>
 <div id="wrap">
-<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 -12px 6px 6px #FFFFFF;"><h1>Digit Function</h1></div>
+<div style="position: sticky; top: 2px; background-color: #FFFFFF; z-index:100; box-shadow: 0 -12px 6px 6px #FFFFFF;"><h1>Arithmetic Indicators</h1></div>
 
 <ul><li><a href="#idea">Idea</a></li>
-<li><a href="#p-adic-connection">p-adic connection</a></li>
-</ul>
+<ul><li><a href="#note">Note</a></li>
+</ul><li><a href="#list-of-arithmetic-indicators">List of arithmetic indicators</a></li>
+<ul><li><a href="#logic">Logic</a></li>
+<li><a href="#equalities-and-inequalities">Equalities and inequalities</a></li>
+<li><a href="#number-theory">Number theory</a></li>
+</ul></ul>
 
 <h2 id="idea">Idea</h2>
+Arithmetic indicators are <a href="closed_form_expressions.html">elementary functions</a> that simulate <a href="https://en.wikipedia.org/wiki/Indicator_function">indicator functions</a>.
 
-The digit function,
-$$D_b^n(x)=\left\lfloor\frac{x}{b^n}\right\rfloor-b\left\lfloor\frac{x}{b^{n+1}}\right\rfloor,$$
-returns the $n^\text{th}$ digit from the base $b$ expansion of $x$. I.e;
-$$\sum_{n\in\mathbb{Z}}b^n D_b^n(x)=x.$$
-So by $n^\text{th}$ digit, we mean the digit coresponding to the $n^\text{th}$ power of $b$. It is the subject of a lot of my research.
+<h3 id="note">Note</h3>
+This article uses <a href="https://en.wikipedia.org/wiki/Iverson_bracket">Iverson brackets</a>, $[\ \cdot\ ]$, to notate indicator functions. I.e; for any proposition, $\phi$, we have $$[\phi]=\begin{cases}1 &: \phi,\\0 &: \neg\phi.\end{cases}.$$
 
-<h2 id="p-adic-connection">p-adic connection</h2>
+<h2 id="list-of-arithmetic-indicators">List of arithmetic indicators</h2>
 
-Without any modification, the digit function yields the <a href="https://en.wikipedia.org/wiki/P-adic_number">$p$-adic</a> expansion for negative integers in base $p$. For example, the 2-adic expansion of $-1$ is
-$$\dots1111111_2=-1,$$
-which corresponds to the fact that
-$$D_2^n(2)=1,$$
-for all $n\in\mathbb{N}$.
+In combination with eachother, arithmetic indicators can perform a wide variety of operations. They are usually computationally inefficient, however their utility is in their novelty, ability to have their existence stand as explicit examples / counter-examples, and for the allowance of <a href="https://en.wikipedia.org/wiki/Turing_completeness">turing-completeness</a> of a system which is limited to elementary operations, like most calculators.
+
+<h3 id="logic">Logic</h3>
+
+<ul>
+    <li> $[\top]=1$.</li>
+    <li> $[\bot]=0$.</li>
+    <li> $[p \wedge q]=[p][q]$.</li>
+    <li> $[\neg p]=1-[p]$.</li>
+    <li> $[p\vee q]=[p]+[q]-[p][q]$.</li>
+</ul>
+
+<h3 id="equalities-and-inequalities">Equalities and inequalities</h3>
+
+<ul>
+    <li> $[a=b]=\left\lfloor\frac{1}{1+|a-b|}\right\rfloor$ .</li>
+    <ul>
+        <li> Alternatively, $[a=b]=0^{|a-b|}$ if $0^0:=1$,</li>
+        <li> or $[a=b]=\left\lfloor(1+\epsilon)^{-|a-b|}\right\rfloor$ (for any $\epsilon>0$)..</li>
+    </ul>
+    <li> $[a\leq b]=\left\lfloor\frac{2}{\pi}\cot^{-1}(a-b)\right\rfloor$.</li>
+    <ul>
+        <li> Alternatively, $[a\leq b]=\left\lfloor\frac{2}{1+(1+\epsilon)^{a-b}}\right\rfloor$ (for any $\epsilon>0$).</li>
+    </ul>
+    <li> $[a > b]=\left\lceil\frac{2}{\pi}\tan^{-1}(a-b)\right\rceil$.</li>
+</ul>
+
+<h3 id="number-theory">Number theory</h3>
+
+<ul>
+    <li> $[p\text{ is prime}]=[\sigma_0(p)=2]$, where $\sigma_0$ is the <a href="https://en.wikipedia.org/wiki/Divisor_function">divisor function</a>.</li>
+</ul>
 </body>
