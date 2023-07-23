@@ -189,7 +189,7 @@
         position: relative;
         color: #FF4400;
         background: #FFFFFF;
-        box-shadow: 0 0 20px 20px #FFFFFF;
+        box-shadow: 0 0 10px 10px #FFFFFF;
     }
     
     label.sidenote-number {
@@ -252,9 +252,15 @@
 <li><a href="#euler-characteristic">Euler characteristic</a></li>
 <li><a href="#k-cubes-meeting-along-j-cubes">k-cubes meeting along j-cubes</a></li>
 </ul><li><a href="#n-spheres">n-spheres</a></li>
-<li><a href="#a-set-theoretical-approach">A set theoretical approach</a></li>
-<li><a href="#negative-hausdorff-dimension">Negative Hausdorff dimension</a></li>
-<ul><li><a href="#-existence-of-a-trivial-example"> Existence of a trivial example</a></li>
+<li><a href="#set-theoretical-problems">Set-theoretical problems</a></li>
+<li><a href="#a-p-adic-inspired-proposal-for-negative-ordinals">A p-adic inspired proposal for negative ordinals</a></li>
+<ul><li><a href="#motivation">Motivation</a></li>
+<li><a href="#definition">Definition</a></li>
+<li><a href="#applying-this-definition">Applying this definition</a></li>
+</ul><li><a href="#negative-fractal-dimension">Negative fractal dimension</a></li>
+<ul><li><a href="#-attempts-towards-the-existence-of-a-trivial-example"> Attempts towards the existence of a trivial example</a></li>
+</ul><li><a href="#research-by-mandelbrot-and-frame">Research by Mandelbrot and Frame</a></li>
+<ul><li><a href="#intersection-formula">Intersection formula</a></li>
 </ul><li><a href="#articles-referencing-here">Articles referencing here</a></li>
 </ul>
 
@@ -432,7 +438,7 @@ $$V_{-1}=\frac{1}{\pi r}\text{ and }S_{-1}=-\frac{1}{\pi r^2}.$$
 
 It is not so difficult to show that the $n$-volume and $n$-surface-area of negative dimensional spheres have opposite signs of each other. However this does leave open the question of what negative values of these measures mean.
 
-<h2 id="a-set-theoretical-approach">A set theoretical approach</h2>
+<h2 id="set-theoretical-problems">Set-theoretical problems</h2>
 
 One of the more canonical approaches to studying negative dimensions is through set theory. We may remember that <a href="https://math.stackexchange.com/a/901742/969809">the definition of $A^B$</a> is defined as the set of all functions from $B$ to $A$. For example, a coordinate $(x, y)\in\R^2$ is, strictly speaking, a function $(x, y):\{0, 1\}\mapsto \mathbb{R}$ s.t. $(x,y)(0)=x$ and $(x, y)(1)=y$, since $2:=\{0,1\}$ as a <a href="https://en.wikipedia.org/wiki/Set-theoretic_definition_of_natural_numbers">Von Neumann ordinal</a>. So, the problem of studying <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">$\R^n$</a> for negative $n$ reduces to finding a suitable definition while dropping the least relevant properties. Unfortunately, we must inevitably drop several important ones. For all $m,n\in\N$,
 
@@ -445,12 +451,95 @@ Notice, however, that these problems really only arise from questioning how to c
 
 <br>
 
-Furthermore, natural numbers are considered equivalent up to equivalence of cardinality. Hence, without dropping this condition, any suitable choice for the negatives must not only have infinite cardinality, but all be uncountable except for at most one, in order to be distinct from the naturals and from eachother. That is, unless we find a suitable definition for negative cardinality.
+Furthermore, natural numbers are considered equivalent up to equivalence of cardinality. Hence, without relaxing this condition, any suitable choice for the negatives must not only have infinite cardinality, but all be uncountable except for at most one, in order to be distinct from the naturals and from eachother. That is, unless we find a suitable definition for negative cardinality.
 
-<h2 id="negative-hausdorff-dimension">Negative Hausdorff dimension</h2>
-There is already some notion of non-natural number dimensions for instance, in that of <a href="https://en.wikipedia.org/wiki/Hausdorff_dimension">Hausdorff dimensions</a>. It is a known result that, loosely speaking, if a fractal is a union of $b$ copies of itself, each scaled by a factor of $a^{-1}$, then it has a Hausdorff dimension of $\log_b(a)$. For instance, the <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Sierpinski triangle</a> can be thought of as containing 3 copies of itself scaled by a factor of $\frac{1}{2}$, <a href="https://en.wikipedia.org/wiki/Hausdorff_dimension#Examples">hence having Hausdorff dimension of $\log_3(2)\approx 1.58$</a><sup style="color: #FF4400">[2]</sup><span class="sidenote"><sup>[2] </sup>This may be thought of as something of a measure of the <a href="https://en.wikipedia.org/wiki/Degrees_of_freedom">degrees of freedom</a> of a point "living" in it.</span>. In any case, should this notion hold more generally, if there exists a shape which is the union of 2 copies of itself, each scaled by a factor of 2, then this measure $\log_b(a)$ is precisely $-1$. At present, it is unclear if such a shape exists.
+<h2 id="a-p-adic-inspired-proposal-for-negative-ordinals">A p-adic inspired proposal for negative ordinals</h2>
 
-<h3 id="-existence-of-a-trivial-example"> Existence of a trivial example</h3>
+We propose one definition for negative ordinals, inspired by <a href="https://en.wikipedia.org/wiki/P-adic_number">$p$-adics</a>. We will first give a brief overview of them and outline several ways in which they are already natural extensions to non-negative integers, before extending this notion set-theoretically.
+
+<h3 id="motivation">Motivation</h3>
+
+Informally, instead of signs (e.g; $+$ or $-$), and expansions to the <i>right</i> of the <a href="https://simple.wikipedia.org/wiki/Radix_point">radix point</a>, $p$-adic numbers can be thought of as what would happen if we extended natural numbers to allow for infinite digits to the <i>left</i> of the radix point. It turns out, many $p$-adic expansions behave similarly to negative integers, rationals, and even real and complex numbers, under usual notions of arithmetic. For instance, in the $2$-adics<sup style="color: #FF4400">[2]</sup><span class="sidenote"><sup>[2] </sup>The $p$ in $p$-adic plays the role of a <a href="https://simple.wikipedia.org/wiki/Base_(mathematics)">base</a>.</span>, we have
+
+$$\dots1111111_2=-1,$$
+
+where the left-hand-side denotes the 2-adic expansion of the right-hand-side. Technically, we are mixing two different systems here, for in the 2-adics the right-hand-side <i>is</i> what would be represnted by the left, but hopefully the idea comes across, anyway, that $\dots1111111_2$ denotes a number $x$ s.t. $x+1=0$.
+
+<br>
+
+The $p$-adics have surprisingly deep connections to many areas of math, and are arguably just as natural as traditional number systems, albeit unintuitive as they may seem. To highlight this, we give 5 examples of how they may "show up" naturally.
+<ul>
+    <li> Computer scientists may realize that many properties of $2$-adics are inherently used in the computation of negative numbers, on the binary level (for instance, in <a href="https://en.wikipedia.org/wiki/Integer_overflow">overflow</a>).</li>
+</ul>
+Attempting to perform arithmetic with $\dots1111111_2$, interpreted solely as we would any other natural binary number, yields something which behaves identically to $-1$ in many ways.
+<ul>
+    <li> If we were to add $1$ to such a number, we would find that the resulting bit in every position would be $0$, and the <a href="https://en.wikipedia.org/wiki/Carry_(arithmetic)">carry</a> would never halt. So, in some sense, adding $1$ to such a number yields a process which converges to $0$, so we may conclude $\dots1111111_2+1=0$.</li>
+    <li> Doubling a binary number is equivalent to shifting the radix over by one, so we find $2(\dots1111111_2)+1=\dots11111110_2+1=\dots11111111_2$. The only other (traditional) number we know of with this property ($2x+1=x$) is, of course, $-1$.</li>
+    <li> Ignoring the bounds on the <a href="https://en.wikipedia.org/wiki/Geometric_series">geometric series</a>, we find $\dots11111111_2=\sum_{n=0}^\infty 2^n=\frac{1}{1-2}=-1$.</li>
+</ul>
+Finally, it is not just the 2-adics expansions, let alone for $-1$, which obey these natural properties.
+<ul>
+    <li> The <a href="digit_function.html">digit function</a>, without any modification, produces the exact expansions for all $p$-adic negative integers, despite being intended for natural numbers.</li>
+</ul>
+
+With these observations, we are sure that anyone with enough experience with them would also argue (or at least understand the argument) that they are more than just a notational "hack", but are truly representative of negative (and rational, etc) quantities which we are already familiar with; we just have to let go of our attachment to the traditional notational systems we are immersed in.
+
+<h3 id="definition">Definition</h3>
+
+A keen observer may notice that, in set theory, positional notation isn't even a concept. Sets are unordered, by definition, hence they have no notion of digits. If anything, they are <a href="https://en.wikipedia.org/wiki/Unary">unary</a>, for a number is equivalent only to its cardinality. Nonetheless, there is still one concept of $p$-adics that may analagously carry over in set theory.
+
+<br>
+
+Notice that, a natural number has only finitely many non-zero digits to the left of its radix point, whereas a negative integer has infinite. Even more to the point, the more non-zero digits a natural number has, the greater it is, generally; meanwhile, the more <i>zero</i> digits a negative number has, the greater (its absolute value) is<sup style="color: #FF4400">[3]</sup><span class="sidenote"><sup>[3] </sup>As an interesting aside, if a $p$-adic number has finite non-zero or zero-digits iff. it is an intenger.</span>. So in a somewhat informal, yet somehow intuitive, sense, in the $p$-adics, the negatives and positives form something of a closed loop (similar to the <a href="https://en.wikipedia.org/wiki/Riemann_sphere">Riemann sphere</a>). More formally, negatives are a limit of sequences of the positives, and $0$ is a limit of a sequence of negatives. For example, the sequence $1_2=1$, $11_2=3$, $111_2=7$, etc., despite becoming more and more positive (i.e; less and less negative), approaches $\dots11111111_2=-1$. Likewise, the sequence $\dots11111111_2=-1$, $\dots11111110_2=-2$, $\dots11111100_2=-4$, etc., despite becoming more and more negative, approaches $0$.
+
+<br>
+
+Finally, with this intuition hopefully, solidified we may define <i>negative finite ordinals</i> by the
+
+$$\forall n\in \Z (-n := \omega - n),$$
+
+where $\omega=\{0,1,2,\dots\}$ and $A-B$ is the <a href="https://proofwiki.org/wiki/Definition:Set_Difference">set difference</a>. That is to say,
+
+$$\begin{align*}
+    &\vdots\\
+    -3 &= \{3,4,5,\dots\}\\
+    -2 &= \{2,3,4,\dots\}\\
+    -1 &= \{1,2,3,\dots\}\\
+    0 &= \emptyset\\
+    1 &= \{0\}\\
+    2 &= \{0,1\}\\
+    3 &= \{0,1,2\}\\
+    &\vdots
+\end{align*}$$
+
+i.e; the negatives are <a href="https://en.wikipedia.org/wiki/Complement_(set_theory)">compliments</a> to the positives, relative to $\omega$. This definition fulfills several properties previously discussed in the above section on set theory. For instance, for any $m,n\in\Z^-$, the properties
+
+<ul>
+    <li> $|m+n|=|m|+|n|$.<sup style="color: #FF4400">[4]</sup><span class="sidenote"><sup>[4] </sup>Defining addition in the most obvious way. Although, this is rather trivial, since all negative ordinals have countably infinite cardinality, by definition.</span></li>
+    <li> $m\subseteq n \iff -n \subseteq -m$.<sup style="color: #FF4400">[5]</sup><span class="sidenote"><sup>[5] </sup>Therefore internal order of the negatives may be defined by inclusion, as in the case of the naturals. I.e; $$\cdots -3\subseteq-2\subseteq-1\not\subseteq 0\subseteq 1\subseteq 2\subseteq 3\cdots$$</span></li>
+</ul>
+
+If we may recall, these were the properties which would have to have been broken for any definition of integers, so it is convenient that they are still obeyed internally within the negatives, at least. However, of course, they generally do not hold for all integers. Furthermore, it is clear that $-(-n)=n$, so double negation is satisfied. We also get the additional property that $n\cup(-n)=\omega$ for all integers $n$, so $\omega$ acts something like an identity element, like zero, despite not being any integer itself. Actually, by our definition, $-0=\omega$, so by equality we unfortunately must have to either mean something different from that set up by <a href="https://en.wikipedia.org/wiki/Axiom_of_extensionality">extensionality</a>, or make an exception for $0$. Indeed, since all negative ordinals, by this definition, have the same (countably infinite) cardinality, we must distinguish integers a little more carefully. Fortunately, the remedy is simple.
+
+<ul>
+    <li> Let two integers be equivalent up to equivalence of their cardinality <i>and</i> cardinality of their inverse.</li>
+</ul>
+
+Therefore, any set $X\subseteq \omega$, for example, such that $|\omega-X|=n$ for any $n\in\N$ would be considered equivalent to $-n$.
+
+<h3 id="applying-this-definition">Applying this definition</h3>
+By our definition, $\R^{-n}$, for some $n\in\N$ must be equivalent to $\R^{\omega-n}$. Therefore, negative dimensional spaces are infinite-dimensional. For instance, a point $(x_1,x_2,\dots)\in\R^{-1}$ is a tuple with indices $i\in(-1)=\{1,2,\dots\}$. Similarly, a point $(x_2,x_3,\dots)\in\R^{-2}$ is a tuple with indices $i\in(-2)=\{2,3,\dots\}$. Hence,
+$$\cdots\R^{-3}\subseteq \R^{-2} \subseteq \R^{-1}.$$
+However, by the equivalence of cardinality of the negatives, we also have
+$$\R^{-m}\cong \R^{-n},$$
+for any $m,n\in\N$, so the difference between any two spaces of negative dimension is extremely subtle.
+
+One may point out that we do not have the property that $\R^n\times\R^{-n}\cong \R^0$, however this was never a property to begin with, since the <a href="https://en.wikipedia.org/wiki/Coproduct">coproduct</a> in the <a href="https://en.wikipedia.org/wiki/Category_of_sets">category of sets</a> is <a href="https://en.wikipedia.org/wiki/Disjoint_union">disjoint union</a>, which, as already mentioned, cannot serve as a definition for addition over the integers without the existence of negative <a href="https://en.wikipedia.org/wiki/Cardinal_number">cardinals</a>. So, what we actually have is that $A^B\times A^C\cong A^{B\sqcup C}$.
+
+<h2 id="negative-fractal-dimension">Negative fractal dimension</h2>
+There is already several notions of non-natural number dimensions for instance, in that of <a href="https://en.wikipedia.org/wiki/Hausdorff_dimension">Hausdorff dimension</a>, <a href="https://mathworld.wolfram.com/SimilarityDimension.html">Similarity dimension</a>, and <a href="https://en.wikipedia.org/wiki/Minkowski%E2%80%93Bouligand_dimension">Box counting dimension</a>, to name a few. In many cases, two or more of these measures are equivalent, but there are cases where they differ. In regard to similarity dimension, loosely speaking, if a fractal is a union of $b$ copies of itself, each scaled by a factor of $a^{-1}$, then it has a similarity dimension of $\log_b(a)$. For instance, the <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Sierpinski triangle</a> can be thought of as containing 3 copies of itself scaled by a factor of $\frac{1}{2}$, <a href="https://en.wikipedia.org/wiki/Hausdorff_dimension#Examples">hence having similarity dimension of $\log_3(2)\approx 1.58$</a><sup style="color: #FF4400">[6]</sup><span class="sidenote"><sup>[6] </sup>This may also be thought of as something of a measure of the <a href="https://en.wikipedia.org/wiki/Degrees_of_freedom">degrees of freedom</a> of a point "living" in it.</span>. In this case, all three of the aforementioned dimension fot the Sierpinski triangle agree. In any case, should this notion hold more generally, if there exists a shape which is the union of 2 copies of itself, each scaled by a factor of 2, then this measure $\log_b(a)$ is precisely $-1$. Intuitively, no shape of finite measure can have this property. At present, it is unclear if such a shape exists.
+
+<h3 id="-attempts-towards-the-existence-of-a-trivial-example"> Attempts towards the existence of a trivial example</h3>
 
 We may nevertheless speculate about a trivial example embedded in $\N$.
 
@@ -463,13 +552,67 @@ Does there exist some $C\subseteq \N$, s.t. there exists $A,B\subseteq C$ s.t.
     <li> $A\cup B=C$, and</li>
     <li> $A\cap B=\emptyset$?</li>
 </ul>
-I.e; $C$ is the union of two copies of itself, $A$ and $B$, each scaled by a factor of $2$ and shifted by $k_A$ and $k_B$ respectively. It is not so difficult to show that for any $n\in C$, we must also have $2^k n + \alpha k_A+\beta k_B\in C$, for any $k\in\N$ and $\alpha,\beta\in\N$, s.t. $\alpha+\beta=2^k-1$. <a href="https://en.wikipedia.org/wiki/Without_loss_of_generality">Without loss of generality</a>, we may assume $0\in C$ and take the case that $n=0$. Hence,
+I.e; $C$ is the union of two copies of itself, $A$ and $B$, each scaled by a factor of $2$ and shifted by $k_A$ and $k_B$ respectively. It is not so difficult to show that for any $n\in C$, we must also have $2^k n + \alpha k_A+\left(2^k-1-\alpha\right) k_B\in C$, for any $k\in\N$ and $\alpha\in\N$, s.t. $\alpha\le 2^k-1$. Hence, we may interpret $n$ as "seed" for the set, and $k_A$ and $k_B$ as that which generates the rest of the elements. <a href="https://en.wikipedia.org/wiki/Without_loss_of_generality">Without loss of generality</a>, we may assume $0\in C$, and $k_A\lt k_B$ and take the case that $n=0$. Hence,
 <ul>
-    <li> $\alpha k_A+\beta k_B\in A$ whenever $\alpha\equiv 1\mod 2$, otherwise</li>
-    <li> $\alpha k_A+\beta k_B\in B$, for any $k\in\N$.</li>
+    <li> $\alpha k_A+\left(2^k-1-\alpha\right) k_B\in A$ whenever $\alpha\equiv 1\mod 2$, otherwise</li>
+    <li> $\alpha k_A+\left(2^k-1-\alpha\right) k_B\in B$, for any $k\in\N$.</li>
 </ul>
 
-This line of reasoning is to be continued...
+It appears that for some values of $k_A$ and $k_B$, these criteria are almost sufficient.
+
+<div id="calculator3" style="width: 100%; height: 400px; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 0 12px -6px #004488;"><script>
+var elt = document.getElementById('calculator3');
+var calculator = Desmos.GraphingCalculator(elt, {colors: ["#000000", "#FF4400", "#004488", "#880044"]});
+    calculator.setExpression({ id: '1', hidden: true, secret: true, latex: 'A\\left(k,j\\right)=k_{A}\\left(2j+1\\right)+k_{B}\\left(2^{k}-1-\\left(2j+1\\right)\\right)\\left\\{0\\le2j+1\\le2^{k}-1\\right\\}'});
+    calculator.setExpression({ id: '2', hidden: true, secret: true, latex: 'B\\left(k,j\\right)=k_{A}\\left(2j\\right)+k_{B}\\left(2^{k}-1-\\left(2j\\right)\\right)\\left\\{0\\le2j\\le2^{k}-1\\right\\}'});
+    calculator.setExpression({ id: '3', hidden: true, latex: 'k_{A}=2', sliderBounds: {min: "1", max: "10", step: "1"}});
+    calculator.setExpression({ id: '4', hidden: true, latex: 'k_{B}=5', sliderBounds: {min: "k_{A}+1", max: "10", step: "1"}});
+    calculator.setExpression({ id: '5', hidden: true, secret: true, latex: 'A_{k}\\left(x\\right)=1+\\operatorname{floor}\\left(\\log_{2}\\left(x+1\\right)\\right)'});
+    calculator.setExpression({ id: '6', hidden: true, secret: true, latex: 'A_{j}\\left(x\\right)=x+1-2^{\\left(\\operatorname{floor}\\left(\\log_{2}\\left(x+1\\right)\\right)\\right)}'});
+    calculator.setExpression({ id: '7', hidden: true, secret: true, latex: 'a\\left(n\\right)=A\\left(A_{k}\\left(n\\right),A_{j}\\left(n\\right)\\right)'});
+    calculator.setExpression({ id: '8', hidden: true, secret: true, latex: 'B_{k}\\left(x\\right)=\\left\\{x=0:0,A_{k}\\left(x-1\\right)\\right\\}'});
+    calculator.setExpression({ id: '9', hidden: true, secret: true, latex: 'B_{j}\\left(x\\right)=\\left\\{x=0:0,A_{j}\\left(x-1\\right)\\right\\}'});
+    calculator.setExpression({ id: '10', hidden: true, secret: true, latex: 'b\\left(n\\right)=B\\left(B_{k}\\left(n\\right),B_{j}\\left(n\\right)\\right)'});
+    calculator.setExpression({ id: '11', hidden: true, secret: true, latex: 'N=\\left[0,...,500\\right]'});
+    calculator.setExpression({ id: '12', color: "#FF4400", secret: true, latex: '\\operatorname{polygon}\\left(\\left(a\\left(N\\right),0\\right),\\left(a\\left(N\\right),1\\right),\\left(a\\left(N\\right)+1,1\\right),\\left(a\\left(N\\right)+1,0\\right)\\right)'});
+    calculator.setExpression({ id: '13', color: "#004488", secret: true, latex: '\\operatorname{polygon}\\left(\\left(b\\left(N\\right),0\\right),\\left(b\\left(N\\right),1\\right),\\left(b\\left(N\\right)+1,1\\right),\\left(b\\left(N\\right)+1,0\\right)\\right)'});
+    calculator.setExpression({ id: '14', color: "#880044", secret: true, latex: '\\operatorname{polygon}\\left(\\left(sa\\left(N\\right)+k_{0},1\\right),\\left(sa\\left(N\\right)+k_{0},2\\right),\\left(sa\\left(N\\right)+k_{0}+1,2\\right),\\left(sa\\left(N\\right)+k_{0}+1,1\\right)\\right)'});
+    calculator.setExpression({ id: '15', color: "#880044", secret: true, latex: '\\operatorname{polygon}\\left(\\left(sb\\left(N\\right)+k_{0},1\\right),\\left(sb\\left(N\\right)+k_{0},2\\right),\\left(sb\\left(N\\right)+k_{0}+1,2\\right),\\left(sb\\left(N\\right)+k_{0}+1,1\\right)\\right)'});
+    calculator.setExpression({ id: '16', hidden: true, secret: true, latex: 's=1', sliderBounds: {min: "1", max: "2"}});
+    calculator.setExpression({ id: '17', hidden: true, secret: true, latex: 'k_{0}=0', sliderBounds: {min: "0", max: "k_{B}"}});
+    calculator.setExpression({ id: '18', color: "#880044", secret: true, latex: '\\left(k_{0}+\\frac{1}{2},\\frac{3}{2}\\right)', label: "Drag to translate", showLabel: true});
+    calculator.setExpression({ id: '19', color: "#880044", secret: true, latex: '\\left(k_{0}+k_{A}\\cdot s+\\frac{1}{2},\\frac{3}{2}\\right)', label: "Drag to scale", showLabel: true});
+    calculator.setExpression({ id: '20', color: "#FF4400", secret: true, latex: '\\left(k_{A}+\\frac{1}{2},\\frac{1}{2}\\right)', label: "k_A=${k_{A}}", showLabel: true});
+    calculator.setExpression({ id: '21', color: "#004488", secret: true, latex: '\\left(k_{B}+\\frac{1}{2},\\frac{1}{2}\\right)', label: "k_B=${k_{B}}", showLabel: true});
+    calculator.setExpression({ id: '22', color: "#000000", secret: true, latex: '\\operatorname{polygon}\\left(\\left(0,0\\right),\\left(0,1\\right),\\left(1,1\\right),\\left(1,0\\right)\\right)'});
+calculator.setDefaultState(calculator.getState());</script></div>
+$$\text{Graph 3. Interactive graph of $C$ as a union of $A$ and $B$.}$$
+
+We encourage the reader to play around with the above graph, where the orange, blue and purple tiles represent $A$, $B$ and $C$, respectively (being cautious to avoid values of $k_A$ and $k_B$ which cause overlap), to demonstrate for themselves that when $A\cap B=\emptyset$, then $A\cup B=C\setminus\{0\}$. I.e; notice that the orange and blue sets are scaled and translated copies of the purple set, which is the union of them both, <i>and</i> zero.
+
+<h2 id="research-by-mandelbrot-and-frame">Research by Mandelbrot and Frame</h2>
+
+<a href="https://en.wikipedia.org/wiki/Benoit_Mandelbrot">Benoit B. Mandelbrot</a> and <a href="https://en.wikipedia.org/wiki/Michael_Frame">Michael Frame</a>, in their paper, <a href="https://users.math.yale.edu/~bbm3/web_pdfs/emptiness_of_latent_sets-1.pdf">A Primer of Negative Test Dimensions and Degrees of Emptiness of Latent Sets</a>, explored the topic of negative dimensions in several ways. We highlight some of their research here.
+
+<h3 id="intersection-formula">Intersection formula</h3>
+
+There does exist a formula concerning the dimension of the intersection of some spaces which does exhibit negative results. In general,
+
+$$\mathbb{S}\in\mathcal{P}(\R^n)\implies \text{dim}\left(\bigcap_{X\in\mathbb{S}}X\right)=n-\sum_{X\in\mathbb{S}}(n-\text{dim}(X)).$$
+
+Or in plain language, for any family $\mathbb{S}$ of <a href="https://en.wikipedia.org/wiki/Euclidean_space">spaces</a> that are, each, a subset of $\R^n$, the dimension of their intersection is given by the difference between $n$ and the sum of their differences of $n$ and their dimension. For instance, in $\R^3$, a <a href="https://en.wikipedia.org/wiki/Plane_(mathematics)">plane</a> has a dimension of $2$, and an intersection of two of them is typically a <a href="https://en.wikipedia.org/wiki/Line_(geometry)">line</a> of dimension $1$. This is illustrated by the above formula, which yields
+
+$$\text{dim}(X_1\cap X_2)=3-(3-\text{dim}(X_1))-(3-\text{dim}(X_2))=3-(3-2)-(3-2)=1,$$
+
+for planes $X_1$ and $X_2$. However, by the same, formula, if instead $X_1$ and $X_2$ are lines in $\R^3$, then the dimension of their intersection is
+
+$$\text{dim}(X_1\cap X_2)=3-(3-\text{dim}(X_1))-(3-\text{dim}(X_2))=3-(3-1)-(3-1)={\color{red}-1}.$$
+
+This, by itself, is not so surprising, for the intersection of two lines in $\mathbb{R}^3$ is typically empty. As such, it is commonly interpreted that an empty set has dimension $-1$. However, there appears to be various <i>degrees</i> of emptiness, as per the title of their paper. For instance, the intersection of $|\mathbb{S}|=k$ lines in $\R^3$ has dimension
+
+$$\text{dim}\left(\bigcap_{X\in\mathbb{S}}X\right)=3-\sum_{X\in\mathbb{S}}(3-\text{dim}(X))=3-\sum_{X\in\mathbb{S}}(3-1).=3-2|\mathbb{S}|=3-2k,$$
+
+which becomes increasingly negative with respect to $k$.
 <h2 id="articles-referencing-here">Articles referencing here</h2>
 <ul>
 <li> <a href="about.html">About</a></li>
